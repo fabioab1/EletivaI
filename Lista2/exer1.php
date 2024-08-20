@@ -18,7 +18,7 @@
             </div>
             <div class="col">
                 <label for="valor2" class="form-label">Informe o valor 2:</label>
-                <input type="number" class="form-control" name="valor2" id="valor2">
+                <input type="number" class="form-control mb-3" name="valor2" id="valor2">
             </div>
 
         </div>
