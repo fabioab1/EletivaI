@@ -14,8 +14,8 @@
         <?php
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 try{
-                    $valor1 = (int) $_POST['valor1'];
-                    $valor2 = (int) $_POST['valor2'];
+                    $valor1 = (int) $_POST['valor1'] ?? 0;
+                    $valor2 = (int) $_POST['valor2'] ?? 0;
                     $resultado = $valor1 - $valor2;
                     
                     echo "<p>O resultado de $valor1 - $valor2 é: $resultado.";
