@@ -10,7 +10,7 @@
     <main class="container">
 
       <h1>Exercício 9</h1>
-
+      <p>pi * raio^2 (cm) = área (cm)</p>
       <form action="exer9resp.php" method="POST">
 
       <div class="row mb-3">
