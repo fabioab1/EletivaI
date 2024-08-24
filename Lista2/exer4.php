@@ -13,7 +13,7 @@
     <main class="container">
 
         <h1>Exercício 4</h1>
-
+        <p>a (dividendo) / b (divisor) = c (quociente)</p>
         <form action="exer4resp.php" method="POST">
 
             <div class="row mb-3">
