@@ -30,7 +30,7 @@
             </div>
 
             <div class="d-flex justify-content-start">
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary">Subtrair</button>
             </div>
 
         </form>
