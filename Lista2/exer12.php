@@ -3,31 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Exercício 7</title>
+    <title>Exercício 12</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
 
     <main class="container">
-        <h1>Exercício 7</h1>
 
-        <form action="exer7resp.php" method="POST">
-
+        <h1>Exercício 12</h1>
+        <form action="exer12resp.php" method="POST">
             <div class="row mb-3">
-
                 <div class="col-2">
-                    <label for="fahrenheit" class="form-label">Digite o grau fahrenheit:</label>
-                    <input type="number" step="0.01" id="fahrenheit" name="fahrenheit" class="form-control">
+                    <label for="base" class="form-label">Digite a base:</label>
+                    <input type="number" step="0.01" id="base" name="base" class="form-control">
                 </div>
-
+                <div class="col-2">
+                    <label for="expoente" class="form-label">Digite o expoente:</label>
+                    <input type="number" step="0.01" id="expoente" name="expoente" class="form-control">
+                </div>
+    
             </div>
-
+    
             <div class="d-flex justify-content-start">
-                <button type="submit" class="btn btn-primary">Converter</button>
+                <button type="submit" class="btn btn-primary">Calcular</button>
             </div>
-
         </form>
-
 
     </main>
 
