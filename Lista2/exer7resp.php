@@ -14,7 +14,7 @@
         <?php
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 try{
-                    $fahrenheit = (float) $_POST['fahrenheit'];
+                    $fahrenheit = (float) $_POST['fahrenheit'] ?? 0;
                     $celsius = ($fahrenheit - 32) * 5/9;
 
                     echo $fahrenheit." ºF para grau Celsius é: ".number_format($celsius, 1, ",", ".")." ºC.";

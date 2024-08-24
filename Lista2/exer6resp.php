@@ -15,7 +15,7 @@
 
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 try{
-                    $celsius = (float) $_POST['celsius'];
+                    $celsius = (float) $_POST['celsius'] ?? 0;
                     $fahrenheit = ($celsius * 9/5) + 32;
 
                     echo $celsius."º celsius para Fahrenheit é: ".number_format($fahrenheit, 1, ",", ".")." ºF.";
