@@ -13,7 +13,7 @@
     <main class="container">
 
         <h1>Exercício 3</h1>
-        <p> a (fator) * b (fator) = c (produto)
+        <p> a (fator) * b (fator) = c (produto).</p>
         <form action="exer3resp.php" method="POST">
 
             <div class="row mb-3">

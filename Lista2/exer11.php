@@ -10,7 +10,7 @@
     <main class="container">
 
         <h1>Exercício 11</h1>
-        <p>2 * pi * r (cm) = área (cm)</p>
+        <p>2 * pi * r (cm) = área (cm).</p>
         <form action="exer11resp.php" method="POST">
 
             <div class="row mb-3">

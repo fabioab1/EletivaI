@@ -10,7 +10,7 @@
     <main class="container">
 
         <h1>Exercício 10</h1>
-        <p>largura (cm) + altura (cm) = perímetro (cm)</p>
+        <p>largura (cm) + altura (cm) = perímetro (cm).</p>
         <form action="exer10resp.php" method="POST">
 
         <div class="row mb-3">

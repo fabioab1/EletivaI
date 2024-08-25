@@ -11,7 +11,7 @@
     <main class="container">
 
         <h1>Exercício 8</h1>
-        <p>a (cm) * b (cm) = c (cm)</p>
+        <p>a (cm) * b (cm) = c (cm).</p>
         <form action="exer8resp.php" method="POST">
 
             <div class="row mb-3">
