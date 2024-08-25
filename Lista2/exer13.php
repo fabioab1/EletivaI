@@ -13,7 +13,7 @@
 
     <h1>Exercício 13</h1>
     <form action="exer13resp.php" method="POST">
-      <div class="rol mb-3">
+      <div class="row mb-3">
         <div class="col-2">
           <label for="metros" class="form-label">Digite o valor:</label>
           <input type="number" min="0" step="0.01" id="metros" name="metros" class="form-control">
