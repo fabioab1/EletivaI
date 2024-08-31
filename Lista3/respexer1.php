@@ -35,9 +35,7 @@
             }
         }
         else
-        {
             echo "<h3>Ops! Algo deu errado...</h3></p>Tente novamente.</p><a class='btn btn-primary' href='exer1.php' role='button'>Voltar</a>";
-        }
 
         ?>
 
