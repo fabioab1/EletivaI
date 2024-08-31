@@ -20,7 +20,7 @@
                 $pos_menor_valor = 0;
                 for ($i = 1; $i <= 7; $i++) 
                 {
-                    $valor = $_POST["valor$i"];
+                    $valor = (int) $_POST["valor$i"] ?? 0;
                     if ($valor < $menor_valor) 
                     {
                         $menor_valor = $valor;
