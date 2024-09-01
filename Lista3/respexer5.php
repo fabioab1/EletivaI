@@ -16,19 +16,57 @@
             {
                 try
                 {
-                    switch ((int) $_POST['valor'])
+                    $valor = (int) $_POST['valor'] ?? 1;
+                    switch ($valor)
                     {
-                        
+                        case 0:
+                            echo "<p>Insira um número válido.</p>";
+                            break;
+                        case 1:
+                            echo "<p>$valor - Janeiro.</p>";
+                            break;
+                        case 2:
+                            echo "<p>$valor - Fevereiro.</p>";
+                            break;
+                        case 3:
+                            echo "<p>$valor - Março.</p>";
+                            break;
+                        case 4:
+                            echo "<p>$valor - Abril.</p>";
+                            break;
+                        case 5:
+                            echo "<p>$valor - Maio.</p>";
+                            break;
+                        case 6:
+                            echo "<p>$valor - Junho.</p>";
+                            break;
+                        case 7:
+                            echo "<p>$valor - Julho.</p>";
+                            break;
+                        case 8:
+                            echo "<p>$valor - Agosto.</p>";
+                            break;
+                        case 9:
+                            echo "<p>$valor - Setembro.</p>";
+                            break;
+                        case 10:
+                            echo "<p>$valor - Outubro.</p>";
+                            break;
+                        case 11:
+                            echo "<p>$valor - Novembro.</p>";
+                            break;
+                        default:
+                            echo "<p>$valor - Dezembro.</p>";
                     }
+                    echo "<a class='btn btn-primary' href='exer5.php' role='button'>Voltar</a>";
                 }
                 catch (Exception $e)
                 {
                     echo 'Erro! '.$e->getMessage();
                 }
             }
-
-
-
+            else
+                echo "<h3>Ops! Algo deu errado...</h3><p>Tente novamente.</p><a class='btn btn-primary' href='exer5.php' role='button'>Voltar</a>";
         ?>
 
     </main>
