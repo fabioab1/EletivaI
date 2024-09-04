@@ -16,13 +16,27 @@
         <h1>Resposta do Exercício 3</h1>
 
         <?php
-            
+            function contemPalavra(string $palavra1, string $palavra2): bool
+            {
+                if (is_int(strpos($palavra1, $palavra2)))
+                {
+                    return true;
+                }
+                return false;
+            }
 
             if($_SERVER['REQUEST_METHOD'] == 'POST')
             {
                 try
                 {
-                    
+                    $palavra1 = $_POST['palavra1'] ?? "";
+                    $palavra2 = $_POST['palavra2'] ?? "";
+
+                    if (contemPalavra($palavra1, $palavra2))
+                        echo 'A palavra "'.$palavra2.'" se encontra na palavra "'.$palavra1.'".';
+                    else
+                        echo 'A palavra "'.$palavra2.'" não se encontra na palavra "'.$palavra1.'".';
+                        
                 }
                 catch (Exception $e)
                 {
@@ -31,12 +45,10 @@
             }
             else
             {
-
+                echo "<h5>Ops! Algo deu errado...</h5>";
+                echo "<p>Tente novamente.</p>";
+                echo "<a class='btn btn-primary' href='exer3.php' role='button'>Voltar</a>";
             }
-
-
-
-
 
         ?>
     </main>

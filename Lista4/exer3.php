@@ -14,15 +14,15 @@
 
         <form action="exer3resp.php" method="POST">
             <div class="row mb-3">
-                <label for="palavra1" class="col-form-label col-1">Palavra 1:</label>
+                <label for="palavra1" class="col-form-label col-2">Palavra:</label>
                 <div class="col-2">
                     <input type="text" id="palavra1" name="palavra1" class="form-control">
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="palavra2" class="col-form-label col-1">Palavra 2:</label>
+                <label for="palavra2" class="col-form-label col-2">Palavra a ser encontrada:</label>
                 <div class="col-2">
-                    <input type="text" id="palavra1" name="palavra1" class="form-control">
+                    <input type="text" id="palavra2" name="palavra2" class="form-control">
                 </div>
             </div>
             <div class="row">
