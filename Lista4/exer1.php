@@ -19,8 +19,10 @@
                     <input type="text" id="palavra" name="palavra" class="form-control">
                 </div>
             </div>
-            <div class="col-2">
-                <button type="submit" class="btn btn-primary">Contar</button>
+            <div class="row">
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary">Contar</button>
+                </div>
             </div>
         </form>
 
