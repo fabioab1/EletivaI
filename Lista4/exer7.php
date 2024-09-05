@@ -12,7 +12,22 @@
     <main class="container">
         <h1>Exercício 7</h1>
 
-
+        <form action="exer7resp.php" method="POST">
+            <div class="row mb-3">
+                <label for="data1" class="col-form-label col-1">1ª Data:</label>
+                <div class="col-2">
+                    <input type="date" id="data1" name="data1" class="form-control">
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <label for="data2" class="col-form-label col-1">2ª Data:</label>
+                <div class="col-2">
+                    <input type="date" id="data2" name="data2" class="form-control">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
