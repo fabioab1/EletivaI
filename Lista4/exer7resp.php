@@ -16,13 +16,43 @@
         <h1>Resposta do Exercício 7</h1>
 
         <?php
-            
+            if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+                function diferencaDias(string $data1, string $data2): int
+                {
+                    $timestamp1 = strtotime(str_replace("/","-", $data1));
+                    $timestamp2 = strtotime(str_replace("/","-", $data2));
+                    
+                    $segundos = $timestamp1 - $timestamp2;
+                    $dias = $segundos / 86400;
 
+                    if ($dias < 0)
+                        return $dias * -1;
+                    return $dias;
+                }
 
+                try
+                {
+                    $data1 = $_POST['data1'] ?? "";
+                    $data2 = $_POST['data2'] ?? "";
 
-
-
-
+                    echo "<p>A diferença de dias entre as duas datas é de ".diferencaDias($data1, $data2)." dias.</p>";
+                }
+                catch (Exception $e)
+                {
+                    echo 'Erro! '.$e->getMessage();
+                }
+                catch (TypeError $e)
+                {
+                    echo 'Insira uma data válida.';
+                }
+            }
+            else
+            {
+                echo '<h5>Ops! Algo deu errado...</h5>';
+                echo '<p>Tente novamente.</p>';
+                echo '<a class="btn btn-primary" href="exer7.php" role="button">Voltar</a>';
+            }
         ?>
 
     </main>

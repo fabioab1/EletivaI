@@ -16,14 +16,14 @@
             <div class="row mb-3">
                 <label for="data1" class="col-form-label col-1">1ª Data:</label>
                 <div class="col-2">
-                    <input type="date" id="data1" name="data1" class="form-control">
+                    <input type="text" placeholder="dd/mm/YYYY" id="data1" name="data1" class="form-control">
                 </div>
             </div>
             
             <div class="row mb-3">
                 <label for="data2" class="col-form-label col-1">2ª Data:</label>
                 <div class="col-2">
-                    <input type="date" id="data2" name="data2" class="form-control">
+                    <input type="text" placeholder="dd/mm/YYYY" id="data2" name="data2" class="form-control">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
