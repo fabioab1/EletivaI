@@ -16,9 +16,16 @@
         <h1>Resposta do Exercício 4</h1>
 
         <?php
-            function verificarData(int $dia, int $mes, int $ano)
+            function verificarData(int $dia, int $mes, int $ano): bool
             {
                 return checkdate($mes, $dia, $ano);
+            }
+
+            function apresentarData(int $dia, int $mes, int $ano): void
+            {
+                $timestamp = mktime(0, null, null, $mes, $dia, $ano);
+                $data = date("d-m-Y", $timestamp);
+                echo "<p>".str_replace("-", "/", $data).".</p>";
             }
 
             if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -30,11 +37,17 @@
                     $ano = (int) $_POST['ano'] ?? 1;
 
                     if (verificarData($dia, $mes, $ano))
+                    {
                         echo "<p>Data válida!</p>";
+                    }
                     else
                         echo "<p>Data inválida.</p>";
 
-                    echo "<p>".str_pad("$dia", 2, '0', STR_PAD_LEFT)."/".str_pad("$mes", 2, '0', STR_PAD_LEFT)."/$ano.</p>";
+                    apresentarData($dia, $mes, $ano); /* MESMO com a data INVÁLIDA ele ainda tenta converter para uma válida, pegando a diferença das datas aumentando-a.
+                    Exemplo: 34/54/2024 vai retirar a diferença da quantidade máxima de meses e transformar em anos, a mesma coisa para os dias, em que o excedente será 
+                    convertido em meses, ficando assim 04/07/2024. (54 meses / 12 meses = 4 anos + 2024 = 2028; 34 dias - 30 dias = 1 mês). */
+
+                    // echo "<p>".str_pad("$dia", 2, '0', STR_PAD_LEFT)."/".str_pad("$mes", 2, '0', STR_PAD_LEFT)."/$ano.</p>";
                 }
                 catch (Exception $e)
                 {
