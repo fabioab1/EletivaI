@@ -27,16 +27,18 @@
                     $dias = $segundos / 86400;
 
                     if ($dias < 0)
-                        return $dias * -1;
-                    return $dias;
+                        return (int) $dias * (-1);
+                    return (int) $dias;
                 }
 
                 try
                 {
-                    $data1 = $_POST['data1'] ?? "";
-                    $data2 = $_POST['data2'] ?? "";
+                    $data1 = $_POST['data1'] ?? "10/09/2024";
+                    $data2 = $_POST['data2'] ?? "11/09/2024";
 
-                    echo "<p>A diferença de dias entre as duas datas é de ".diferencaDias($data1, $data2)." dias.</p>";
+                    $diferdias = diferencaDias($data1, $data2);
+
+                    echo "<p>A diferença de dias entre as duas datas é de $diferdias dias.</p>";
                 }
                 catch (Exception $e)
                 {
