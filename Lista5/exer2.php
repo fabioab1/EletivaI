@@ -57,6 +57,8 @@
                         $listaAlunos[$alunos[$i]] = ($notas1[$i] + $notas2[$i] + $notas3[$i]) / 3;
                     }
 
+                    arsort($listaAlunos);
+
                     echo "<p>Lista ordenada de alunos com suas médias:</p>";
                     foreach ($listaAlunos as $chave => $valor)
                         echo "<p>Aluno: $chave - Média: ".number_format($valor, 1, ',', '.').".</p>";
