@@ -35,6 +35,44 @@
 
         </form>
 
+        <?php
+            if ($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+                try
+                {
+                    $codigos = $_POST['cods'];
+                    $nomes = $_POST['nomes'];
+                    $precos = $_POST['precos'];
+
+                    $produtos = array();
+                    
+                    for ($i = 0; $i < 5; $i++)
+                    {
+                        $valores = array();
+
+                        if ($precos[$i] > 100)
+                            $valores[$nomes[$i]] = $precos[$i] - $precos[$i] * 10 / 100;
+                        else
+                            $valores[$nomes[$i]] = $precos[$i];
+
+                        $produtos[$codigos[$i]] = $valores;
+                    }
+
+                    echo "<p>Lista dos produtos ordenada por nome e com um desconto de 10% aplicado:</p>";
+                    foreach ($produtos as $chave => $valor)
+                    {
+                        echo "<p>Código: $chave - ";
+                        foreach($valor as $nome => $preco)
+                            echo"Nome: $nome - Preço: R$ ".number_format($preco, 2, ',', '.')."</p>";
+                    }
+                }
+                catch (Exception $e)
+                {
+                    echo 'Erro! '.$e->getMessage();
+                }
+            }
+
+        ?>
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
