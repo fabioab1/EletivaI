@@ -1,3 +1,6 @@
+<?php
+    declare(strict_types=1);
+?>
 <!doctype html>
 <html lang="pt-BR">
 
@@ -36,6 +39,8 @@
         </form>
 
         <?php
+            function ordena()
+
             if ($_SERVER['REQUEST_METHOD'] == 'POST')
             {
                 try
@@ -57,6 +62,8 @@
 
                         $produtos[$codigos[$i]] = $valores;
                     }
+
+                    ksort()
 
                     echo "<p>Lista dos produtos ordenada por nome e com um desconto de 10% aplicado:</p>";
                     foreach ($produtos as $chave => $valor)
