@@ -43,7 +43,7 @@
 
                     asort($itens);
 
-                    echo "<p>Lista ordenada pelos preços após aplicação do imposto:</p>";
+                    echo "<p>Lista ordenada pelos preços após a aplicação do imposto:</p>";
                     foreach($itens as $chave => $valor)
                         echo "<p>Nome: $chave - Preço: ".number_format($valor, 2, ',', '.')."</p>";
                     
