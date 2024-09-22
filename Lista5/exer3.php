@@ -39,8 +39,13 @@
         </form>
 
         <?php
-            function ordena()
-
+            function compara($a1, $a2)
+            {
+                $na1 = $a1[0];
+                $na2 = $a2[0];
+                return strcmp($na1, $na2);
+            }
+        
             if ($_SERVER['REQUEST_METHOD'] == 'POST')
             {
                 try
@@ -56,21 +61,28 @@
                         $valores = array();
 
                         if ($precos[$i] > 100)
-                            $valores[$nomes[$i]] = $precos[$i] - $precos[$i] * 10 / 100;
+                        {
+                            $preco = (string) $precos[$i] - $precos[$i] * 10 / 100;
+                            array_push($valores, $nomes[$i]);
+                            array_push($valores, $preco);
+                        }
                         else
-                            $valores[$nomes[$i]] = $precos[$i];
+                        {
+                            $preco = (string) $precos[$i];
+                            array_push($valores, $nomes[$i]);
+                            array_push($valores, $preco);
+                        }
 
                         $produtos[$codigos[$i]] = $valores;
                     }
 
-                    ksort()
+                    uasort($produtos, 'compara');
 
                     echo "<p>Lista dos produtos ordenada por nome e com um desconto de 10% aplicado:</p>";
                     foreach ($produtos as $chave => $valor)
                     {
-                        echo "<p>Código: $chave - ";
-                        foreach($valor as $nome => $preco)
-                            echo"Nome: $nome - Preço: R$ ".number_format($preco, 2, ',', '.')."</p>";
+                        $preco = (float) $valor[1];
+                        echo "<p>Código: $chave - Nome: $valor[0] - Preço: R$ ".number_format($preco, 2, ',', '.')."</p>";
                     }
                 }
                 catch (Exception $e)
