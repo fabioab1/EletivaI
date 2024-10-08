@@ -8,7 +8,7 @@
       <ul class="navbar-nav">
 
         <!-- Após desenvolver o código em PHP, essa funcionalidade só será visível ao administrador -->
-         <!-- Início -->
+        <!-- Início -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Usuários
@@ -17,48 +17,58 @@
             <li><a class="dropdown-item" href="usuarios.php">Gerenciar</a></li>
           </ul>
         </li>
-         <!-- Fim -->
+        <!-- Fim -->
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categorias
+            Veículos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="categorias.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="marcas.php">Gerenciar Marcas</a></li>
+            <li><a class="dropdown-item" href="veiculos.php">Gerenciar Veículos</a></li> <!-- Colocar o link da página -->
           </ul>
         </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Produtos
+            Motoristas
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="produtos.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="motoristas.php">Gerenciar</a></li> <!-- Colocar o link da página -->
           </ul>
         </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Compras
+            Rotas
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="compras.php">Gerenciar</a></li>
-            <li><a class="dropdown-item" href="relatorio_compras.php">Relatórios</a></li>
+            <li><a class="dropdown-item" href="rotas.php">Gerenciar</a></li> <!-- Colocar o link da página -->
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Viagens
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="viagens.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="relatorio_viagens.php">Relatórios</a></li>
           </ul>
         </li>
       </ul>
 
       <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Seja bem vindo(a) Usuário
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="editar_usuario.php">Editar dados</a></li>
-                    <li><a class="dropdown-item" href="logout.php">Sair</a></li>
-                </ul>
-            </li>
-        </ul>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Seja bem vindo(a) Usuário
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="editar_usuario.php">Editar dados</a></li>
+            <li><a class="dropdown-item" href="logout.php">Sair</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
