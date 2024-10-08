@@ -21,19 +21,11 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Marcas
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="marcas.php">Gerenciar</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Veículos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="veiculos.php">Gerenciar</a></li> <!-- Colocar o link da página -->
+            <li><a class="dropdown-item" href="marcas.php">Gerenciar Marcas</a></li>
+            <li><a class="dropdown-item" href="veiculos.php">Gerenciar Veículos</a></li> <!-- Colocar o link da página -->
           </ul>
         </li>
 
@@ -60,8 +52,8 @@
             Viagens
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="compras.php">Gerenciar</a></li>
-            <li><a class="dropdown-item" href="relatorio_compras.php">Relatórios</a></li>
+            <li><a class="dropdown-item" href="viagens.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="relatorio_viagens.php">Relatórios</a></li>
           </ul>
         </li>
       </ul>

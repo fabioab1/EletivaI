@@ -12,9 +12,6 @@
         <li><strong>Origem:</strong></li>
         <li><strong>Destino:</strong></li>
         <li><strong>Distância:</strong></li>
-        <li><strong>Horário de saída:</strong></li>
-        <li><strong>Horário de chegada:</strong></li>
-        <li><strong>Tempo de viagem:</strong></li>
     </ul>
 
     <form method="POST">
