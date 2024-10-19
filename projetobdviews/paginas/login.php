@@ -1,5 +1,7 @@
 <?php 
 
+    require_once('../funcoes/usuarios.php');
+
     session_start();
     if($_SERVER['REQUEST_METHOD']=='POST')
     {
@@ -9,9 +11,13 @@
             $senha = $_POST['senha'] ?? "";
             if ($email != "" && $senha != "")
             {
-                if ($email == "adm@adm.com" && $senha == "123")
+    
+                $usuario = login($email, $senha);
+
+                if ($usuario)
                 {
-                    $_SESSION['usuario'] = "Administrador";
+                    $_SESSION['usuario'] = $usuario['nome'];
+                    $_SESSION['nivel'] = $usuario['nivel'];
                     $_SESSION['acesso'] = true;
 
                     header("Location: dashboard.php");
