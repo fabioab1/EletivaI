@@ -1,31 +1,34 @@
 <?php
 
-    session_start();
+    require_once('../funcoes/usuarios.php');
 
-    if($_SERVER['REQUEST_METHOD']=='POST')
+    session_start();
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         try
         {
             $email = $_POST['email'] ?? "";
             $senha = $_POST['senha'] ?? "";
-            if ($email != "" && $senha != "")
+            if ($email != "" & $senha != "")
             {
-                if ($email == "adm@adm.com" && $senha == "123")
+                $usuario = login($email, $senha);
+
+                if ($usuario)
                 {
-                    $_SESSION['usuario'] = "Administrador";
+                    $_SESSION['usuario'] = $usuario['nome'];
+                    $_SESSION['nivel'] = $usuario['nivel'];
                     $_SESSION['acesso'] = true;
 
-                    header("Location: dashboard.php");
+                    header ('Location: dashboard.php');
                 }
                 else
-                {
                     $erro = "Credenciais inválidas!";
-                }
             }
         }
         catch (Exception $e)
         {
-            echo 'Erro! '.$e->getMessage();
+            $erro = 'Erro! '.$e->getMessage();
         }
     }
 

@@ -1,6 +1,25 @@
 <?php 
     require_once 'cabecalho.php'; 
     require_once 'navbar.php';
+    require_once '../funcoes/usuarios.php';
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        try
+        {
+            $id = intval($_POST['id']);
+            $usuario = retornaUsuarioPorId($id);
+            if ($usuario == null)
+            {
+                header('Location: usuarios.php');
+                exit();
+            }
+        }
+        catch (Exception $e)
+        {
+            
+        }
+    }
 ?>
 
 <div class="container mt-5">
