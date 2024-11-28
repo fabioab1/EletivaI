@@ -31,6 +31,14 @@ CREATE TABLE motorista (
     horas_serv DECIMAL(8,1) NOT NULL
 );
 
+CREATE TABLE rota (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(45) NOT NULL,
+    origem VARCHAR(50) NOT NULL,
+    destino VARCHAR(50) NOT NULL,
+    distancia DECIMAL(8,1) NOT NULL
+);
+
 CREATE TABLE compra (
     id INT AUTO_INCREMENT PRIMARY KEY,
     data DATETIME NOT NULL,

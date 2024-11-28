@@ -1,6 +1,7 @@
 <?php
     require_once 'cabecalho.php';
     require_once 'navbar.php';
+    require_once '../funcoes/rotas.php';
 ?>
 
 <div class="container mt-5">
@@ -18,17 +19,28 @@
             </tr>
         </thead>
         <tbody>
+
+            <?php
+                $rotas = todasRotas();
+                foreach ($rotas as $r):
+            ?>
+
             <tr>
-                <td>1</td>
-                <td>Linha 1</td>
-                <td>Rancharia</td>
-                <td>Presidente Prudente</td>
-                <td>60 km</td>
+                <td> <?= $r['id'] ?> </td>
+                <td> <?= $r['nome'] ?> </td>
+                <td> <?= $r['origem'] ?> </td>
+                <td> <?= $r['destino'] ?></td>
+                <td> <?= $r['distancia'] ?> km</td>
                 <td>
-                    <a href="editar_rota.php" class="btn btn-warning">Editar</a>
-                    <a href="excluir_rota.php" class="btn btn-danger">Excluir</a>
+                    <a href="editar_rota.php?id=<?= $r['id'] ?>" class="btn btn-warning">Editar</a>
+                    <a href="excluir_rota.php?id=<?= $r['id'] ?>" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
+
+            <?php
+                endforeach;
+            ?>
+
         </tbody>
     </table>
 </div>
