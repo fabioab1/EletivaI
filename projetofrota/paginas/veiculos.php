@@ -30,7 +30,7 @@
             ?>
 
             <?php
-                $marca = retornaMarcaPorId($v['idmarca']);
+                $marca = retornaMarcaPorId($v['marca_id']);
                 $condicao = "";
                 if ($v['condicao'] == 1)
                     $condicao = "Ótimo";
@@ -46,7 +46,7 @@
 
             <tr>
                 <td> <?= $v['id'] ?> </td>
-                <td> <?= $marca ?> </td>
+                <td> <?php echo $marca['nome'] ?> </td>
                 <td> <?= $v['modelo'] ?> </td>
                 <td> <?= $v['ano'] ?> </td>
                 <td> <?= $v['placa'] ?> </td>
@@ -54,8 +54,8 @@
                 <td> <?= $v['passageiros_max'] ?> </td>
                 <td> <?= $condicao ?> </td>
                 <td>
-                    <a href="editar_veiculo.php" class="btn btn-warning">Editar</a>
-                    <a href="excluir_veiculo.php" class="btn btn-danger">Excluir</a>
+                    <a href="editar_veiculo.php?id=<?=$v['id']?>" class="btn btn-warning">Editar</a>
+                    <a href="excluir_veiculo.php?id=<?=$v['id']?>" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
             <?php endforeach; ?>

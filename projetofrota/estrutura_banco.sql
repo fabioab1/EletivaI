@@ -17,7 +17,7 @@ CREATE TABLE veiculo (
     modelo VARCHAR(100) NOT NULL,
     ano INT,
     placa CHAR(7),
-    motor DECIMAL(8,2),
+    motor DECIMAL(8,1),
     passageiros_max INT,
     condicao INT,
     FOREIGN KEY (marca_id) REFERENCES marca(id)

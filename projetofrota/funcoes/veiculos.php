@@ -27,10 +27,10 @@
     function retornaVeiculoPorId(int $id): ?array
     {
         global $pdo;
-        $stmt = $pdo->prepare("SELECT * FROM marca WHERE id = ?");
+        $stmt = $pdo->prepare("SELECT * FROM veiculo WHERE id = ?");
         $stmt->execute([$id]);
-        $marca = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $marca ? $marca : null;
+        $veiculo = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $veiculo ? $veiculo : null;
     }
 
     function editarVeiculo(int $marcaid, string $modelo, int $ano, string $placa, float $motor, int $passageiros_max, int $condicao, int $id): bool

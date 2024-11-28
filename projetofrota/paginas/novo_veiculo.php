@@ -32,7 +32,7 @@
                     $erro = "Erro ao cadastrar o veículo.";
             }
         } catch (Exception $e) {
-            $erro = 'Erro! '.$e->getMessage();
+            $erro = 'Erro: '.$e->getMessage();
         }
     }
 ?>
