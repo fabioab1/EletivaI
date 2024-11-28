@@ -15,12 +15,20 @@ CREATE TABLE veiculo (
     id INT AUTO_INCREMENT PRIMARY KEY,
     marca_id INT,
     modelo VARCHAR(100) NOT NULL,
-    ano INT,
-    placa CHAR(7),
-    motor DECIMAL(8,1),
-    passageiros_max INT,
-    condicao INT,
+    ano INT NOT NULL,
+    placa CHAR(7) UNIQUE NOT NULL,
+    motor DECIMAL(8,1) NOT NULL,
+    passageiros_max INT NOT NULL,
+    condicao INT NOT NULL,
     FOREIGN KEY (marca_id) REFERENCES marca(id)
+);
+
+CREATE TABLE motorista (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(70) NOT NULL,
+    email VARCHAR(50) UNIQUE NOT NULL,
+    numero_cel CHAR(13) UNIQUE NOT NULL,
+    horas_serv DECIMAL(8,1) NOT NULL
 );
 
 CREATE TABLE compra (

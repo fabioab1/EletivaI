@@ -1,6 +1,7 @@
 <?php
     require_once 'cabecalho.php';
     require_once 'navbar.php';
+    require_once '../funcoes/motoristas.php';
 ?>
 
 <div class="container mt-5">
@@ -18,17 +19,28 @@
             </tr>
         </thead>
         <tbody>
+
+            <?php
+                $motoristas = todosMotoristas();
+                foreach ($motoristas as $m):
+            ?>
+
             <tr>
-                <td>1</td>
-                <td>Teo</td>
-                <td>teodorosampaio23@gmail.com</td>
-                <td>(18) 99612-3456</td>
-                <td>348</td>
+                <td> <?= $m['id'] ?> </td>
+                <td> <?= $m['nome'] ?> </td>
+                <td> <?= $m['email'] ?> </td>
+                <td> <?= $m['numero_cel'] ?> </td>
+                <td> <?= $m['horas_serv'] ?> </td>
                 <td>
-                    <a href="editar_motorista.php" class="btn btn-warning">Editar</a>
-                    <a href="excluir_motorista.php" class="btn btn-danger">Excluir</a>
+                    <a href="editar_motorista.php?id=<?= $m['id'] ?>" class="btn btn-warning">Editar</a>
+                    <a href="excluir_motorista.php?id=<?= $m['id'] ?>" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
+
+            <?php
+                endforeach;
+            ?>
+
         </tbody>
     </table>
 </div>
