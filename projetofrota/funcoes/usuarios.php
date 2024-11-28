@@ -9,13 +9,8 @@
         $stmt = $pdo->query("SELECT * FROM usuario WHERE email = 'adm@adm.com'");
         $usuario = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        if (!$usuario) {
-            $pdo->beginTransaction();
-            $senha = password_hash('adm', PASSWORD_BCRYPT);
-            $stmt = $pdo->prepare("INSERT INTO usuario (nome, email, senha, nivel) VALUES (?, ?, ?, ?)");
-            $stmt->execute(['Administrador', 'adm@adm.com', $senha, 'adm']);
-            $pdo->commit();
-        }
+        if (!$usuario)
+            novoUsuario('Administrador', 'adm@adm.com', 'adm', 'adm');
 
         $stmt = $pdo->prepare("SELECT * FROM usuario WHERE email = ?");
         $stmt->execute([$email]);
@@ -63,11 +58,12 @@
  
     }
 
-    function editarUsuario(int $id): bool
+    function editarUsuario(string $nome, string $email, string $senha, int $id): bool
     {   
         global $pdo;
-        $stmt = 
-
+        $nova_senha = password_hash($senha, PASSWORD_BCRYPT);
+        $stmt = $pdo->prepare("UPDATE usuario SET nome = ?, email = ?, senha = ? WHERE id = ?");
+        return $stmt->execute([$nome, $email, $nova_senha, $id]);
     }
 
 ?>

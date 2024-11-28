@@ -1,6 +1,7 @@
 <?php
     require_once 'cabecalho.php';
     require_once 'navbar.php';
+    require_once '../funcoes/marcas.php';
 ?>
 
 <div class="container mt-5">
@@ -15,14 +16,25 @@
             </tr>
         </thead>
         <tbody>
+
+            <?php
+                $marcas = todasMarcas();
+                foreach ($marcas as $m):
+            ?>
+
             <tr>
-                <td>1</td>
-                <td>Volkswagen</td>
+                <td> <?= $m['id'] ?> </td>
+                <td> <?= $m['nome'] ?> </td>
                 <td>
-                    <a href="editar_marca.php" class="btn btn-warning">Editar</a>
-                    <a href="excluir_marca.php" class="btn btn-danger">Excluir</a>
+                    <a href="editar_marca.php?id=<?= $m['id'] ?>" class="btn btn-warning">Editar</a>
+                    <a href="excluir_marca.php?id=<?= $m['id'] ?>" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
+
+            <?php
+                endforeach;
+            ?>
+
         </tbody>
     </table>
 </div>

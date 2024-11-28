@@ -35,7 +35,7 @@
 ?>
 
 <div class="container mt-5">
-    <h2>Criar Novo Usuário</h2>
+    <h2>Criar Usuário</h2>
 
     <?php if (!empty($erro)): ?>
         <p class="text-danger">$erro</p>

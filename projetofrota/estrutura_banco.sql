@@ -6,19 +6,21 @@ CREATE TABLE usuario (
     nivel ENUM('adm', 'colab') NOT NULL
 );
 
-CREATE TABLE categoria (
+CREATE TABLE marca (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE produto (
+CREATE TABLE veiculo (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    descricao TEXT,
-    preco DECIMAL(10, 2) NOT NULL,
-    estoque_minimo INT NOT NULL,
-    categoria_id INT,
-    FOREIGN KEY (categoria_id) REFERENCES categoria(id)
+    marca_id INT,
+    modelo VARCHAR(100) NOT NULL,
+    ano INT,
+    placa CHAR(7),
+    motor DECIMAL(8,2),
+    passageiros_max INT,
+    condicao INT,
+    FOREIGN KEY (marca_id) REFERENCES marca(id)
 );
 
 CREATE TABLE compra (

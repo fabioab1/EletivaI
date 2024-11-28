@@ -1,6 +1,8 @@
 <?php
     require_once 'cabecalho.php';
     require_once 'navbar.php';
+    require_once '../funcoes/veiculos.php';
+    require_once '../funcoes/marcas.php';
 ?>
 
 <div class="container mt-5">
@@ -21,20 +23,42 @@
             </tr>
         </thead>
         <tbody>
+
+            <?php
+                $veiculos = todosVeiculos();
+                foreach($veiculos as $v):
+            ?>
+
+            <?php
+                $marca = retornaMarcaPorId($v['idmarca']);
+                $condicao = "";
+                if ($v['condicao'] == 1)
+                    $condicao = "Ótimo";
+                else if ($v['condicao'] == 2)
+                    $condicao = "Bom";
+                else if ($v['condicao'] == 3)
+                    $condicao = "Regular";
+                else if ($v['condicao'] == 4)
+                    $condicao = "Ruim";
+                else if ($v['condicao'] == 5)
+                    $condicao = "Quebrado";
+            ?>
+
             <tr>
-                <td>1</td>
-                <td>Volkswagen</td>
-                <td>Gol</td>
-                <td>2004</td>
-                <td>BRA1S23</td>
-                <td>1.6</td>
-                <td>5</td>
-                <td>Regular</td>
+                <td> <?= $v['id'] ?> </td>
+                <td> <?= $marca ?> </td>
+                <td> <?= $v['modelo'] ?> </td>
+                <td> <?= $v['ano'] ?> </td>
+                <td> <?= $v['placa'] ?> </td>
+                <td> <?= $v['motor'] ?> </td>
+                <td> <?= $v['passageiros_max'] ?> </td>
+                <td> <?= $condicao ?> </td>
                 <td>
                     <a href="editar_veiculo.php" class="btn btn-warning">Editar</a>
                     <a href="excluir_veiculo.php" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>
