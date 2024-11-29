@@ -1,6 +1,10 @@
 <?php
     require_once 'cabecalho.php'; 
     require_once 'navbar.php';
+    require_once '../funcoes/viagens.php';
+
+    $dados = gerarDadosGrafico();
+
 ?>
 
 <main class="container">
@@ -21,17 +25,16 @@
         function drawChart() {
             // Array de dados que será usado no gráfico
             var data = google.visualization.arrayToDataTable([
-                ['Produto', 'Estoque Comprado'],
-                ['Tênis', 10],
-                ['Camiseta', 30],
-                ['Short', 25],
-                ['Meia', 5],
+                ['Modelo', 'Quantidade de Viagens'],
+                <?php foreach ($dados as $d): ?>
+                    ['<?= $d['modelo'] ?>', <?= $d['Quantidade'] ?>],
+                <?php endforeach; ?>
             ]);
 
             // Opções de customização do gráfico
             var options = {
-                title: 'Estoque de Produtos Comprados',
-                hAxis: {title: 'Produtos',  titleTextStyle: {color: '#333'}},
+                title: 'Quantidade de viagens realizada por cada veículo',
+                hAxis: {title: 'Viagens',  titleTextStyle: {color: '#333'}, ticks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]},
                 vAxis: {minValue: 0},
                 chartArea: {width: '70%', height: '70%'}
             };

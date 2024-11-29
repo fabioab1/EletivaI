@@ -3,6 +3,16 @@
     declare(strict_types=1);
     require_once('../config/bancodedados.php');
 
+    function gerarDadosGrafico(): array
+    {
+        global $pdo;
+        $stmt = $pdo->query("SELECT ve.modelo, 
+        COUNT(*) as Quantidade FROM veiculo ve 
+        INNER JOIN viagem vg ON vg.veiculo_id = ve.id
+        GROUP BY ve.modelo");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     function novaViagem(string $data_viagem, int $veiculo_id, int $motorista_id, int $rota_id, string $saida, string $chegada, string $tempo_viagem)
     {
         global $pdo;
