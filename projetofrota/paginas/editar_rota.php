@@ -12,7 +12,7 @@
 
     $rota = retornaRotaPorId($id);
 
-    if ($rota = null)
+    if ($rota == null)
     {
         header ("Location: rotas.php");
         exit();
@@ -59,7 +59,7 @@
         <input type="hidden" name="id" value="<?= $id ?>"/>
         <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
-            <input type="text" name="nome" id="nome" value="<?= $rota['nome'] ?>" class="form-control" required>
+            <input type="text" name="nome" value="<?= $rota['nome'] ?>" id="nome" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="origem" class="form-label">Origem</label>

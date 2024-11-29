@@ -1,6 +1,10 @@
 <?php
     require_once 'cabecalho.php'; 
     require_once 'navbar.php';    
+    require_once '../funcoes/viagens.php';
+    require_once '../funcoes/veiculos.php';
+    require_once '../funcoes/motoristas.php';
+    require_once '../funcoes/rotas.php';
 ?>
 
 <div class="container mt-5">
@@ -21,19 +25,32 @@
             </tr>
         </thead>
         <tbody>
+
+            <?php
+                $viagens = todasViagens();
+                foreach($viagens as $vg):
+            ?>
+
+            <?php
+                $veiculo = retornaVeiculoPorId($vg['veiculo_id']);
+                $motorista = retornaMotoristaPorId($vg['motorista_id']);
+                $rota = retornaRotaPorId($vg['rota_id']);
+            ?>
+
             <tr>
-                <td>1</td>
-                <td>10/10/2024</td>
-                <td>Veículo 1</td>
-                <td>Teo</td>
-                <td>Linha 1</td>
-                <td>17:50</td>
-                <td>18:30</td>
-                <td>00h40m</td>
+                <td> <?= $vg['id'] ?> </td>
+                <td> <?= $vg['data_viagem'] ?> </td>
+                <td> <?= $veiculo['modelo'] ?> </td>
+                <td> <?= $motorista['nome'] ?> </td>
+                <td> <?= $rota['nome'] ?> </td>
+                <td> <?= $vg['saida'] ?> </td>
+                <td> <?= $vg['chegada'] ?> </td>
+                <td> <?= $vg['tempo_viagem'] ?> </td>
                 <td>
-                    <a href="excluir_viagem.php" class="btn btn-danger">Excluir</a>
+                    <a href="excluir_viagem.php?id=<?=$vg['id']?>" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </div>

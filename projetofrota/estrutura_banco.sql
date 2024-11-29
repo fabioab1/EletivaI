@@ -39,6 +39,20 @@ CREATE TABLE rota (
     distancia DECIMAL(8,1) NOT NULL
 );
 
+CREATE TABLE viagem (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data_viagem DATE NOT NULL,
+    veiculo_id INT,
+    motorista_id INT,
+    rota_id INT,
+    saida TIME NOT NULL,
+    chegada TIME NOT NULL,
+    tempo_viagem CHAR(6),
+    FOREIGN KEY (veiculo_id) REFERENCES veiculo(id),
+    FOREIGN KEY (motorista_id) REFERENCES motorista(id),
+    FOREIGN KEY (rota_id) REFERENCES rota(id)
+);
+
 CREATE TABLE compra (
     id INT AUTO_INCREMENT PRIMARY KEY,
     data DATETIME NOT NULL,
