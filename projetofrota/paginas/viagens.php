@@ -43,8 +43,8 @@
                 <td> <?= $veiculo['modelo'] ?> </td>
                 <td> <?= $motorista['nome'] ?> </td>
                 <td> <?= $rota['nome'] ?> </td>
-                <td> <?= $vg['saida'] ?> </td>
-                <td> <?= $vg['chegada'] ?> </td>
+                <td> <?= substr($vg['saida'], 0, 5) ?> </td>
+                <td> <?= substr($vg['chegada'], 0, 5) ?> </td>
                 <td> <?= $vg['tempo_viagem'] ?> </td>
                 <td>
                     <a href="excluir_viagem.php?id=<?=$vg['id']?>" class="btn btn-danger">Excluir</a>

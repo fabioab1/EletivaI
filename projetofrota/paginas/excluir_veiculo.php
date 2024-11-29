@@ -4,44 +4,45 @@
     require_once '../funcoes/veiculos.php';
     require_once '../funcoes/marcas.php';
 
+    $id = $_GET['id'];
+    if (!$id)
+    {
+        header ("Location: marcas;php");
+        exit();
+    }
+
+    $veiculo = retornaVeiculoPorId($id);
+
+    if ($veiculo == null)
+    {
+        header ("Location: veiculos.php");
+        exit();
+    }
+
+    $erro = "";
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         try {
             $id = intval($_POST['id']);
             
-            if (excluirVeiculo(($id)))
+            if (empty($id))
             {
                 header ("Location: veiculos.php");
                 exit();
             }
             else
-                $erro = "Erro ao excluir o veículo.";
-
-        } catch (Exception $e) {
-            $erro = "Erro: ".$e->getMessage();
-        }
-    }
-    else
-    {
-        if(isset($_GET['id']))
-        {
-            try
             {
-                $id = intval($_GET['id']);
-                $veiculo = retornaVeiculoPorId($id);
-                if ($veiculo == null)
+                if (excluirVeiculo($id))
                 {
                     header ("Location: veiculos.php");
                     exit();
                 }
-            } catch (Exception $e) {
-                $erro = "Erro: ".$e->getMessage();
+                else
+                    $erro = "Erro ao excluir o veículo.";
             }
-        }
-        else
-        {
-            header ("Location: veiculos.php");
-            exit();
+        } catch (Exception $e) {
+            $erro = "Erro: ".$e->getMessage();
         }
     }
 
@@ -51,6 +52,10 @@
     <h2>Excluir Veículo</h2>
 
     <p>Tem certeza que deseja excluir o véiculo abaixo?</p>
+
+    <?php if (!empty($erro)): ?>
+        <p class="text-danger"><?= $erro ?></p>
+    <?php endif; ?>
 
     <?php
         $marca = retornaMarcaPorId($veiculo['marca_id']);
@@ -78,7 +83,7 @@
     </ul>
 
     <form method="POST">
-        <input type="hidden" name="id" value="<?= $veiculo['id'] ?>"/>
+        <input type="hidden" name="id" value="<?= $id ?>">
         <button type="submit" name="confirmar" class="btn btn-danger">Excluir</button>
         <a href="veiculos.php" class="btn btn-secondary">Cancelar</a>
     </form>
