@@ -13,6 +13,14 @@
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    function gerarDadosRelatorio(): array
+    {
+        global $pdo;
+        $stmt = $pdo->query("SELECT r.destino, COUNT(*) as Quantidade FROM rota r
+        INNER JOIN viagem v ON v.rota_id = r.id GROUP BY r.destino");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     function novaViagem(string $data_viagem, int $veiculo_id, int $motorista_id, int $rota_id, string $saida, string $chegada, string $tempo_viagem)
     {
         global $pdo;

@@ -72,7 +72,7 @@
             Seja bem vindo(a) <?= $_SESSION['usuario'] ?>
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            <li><a class="dropdown-item" href="editar_usuario.php">Editar dados</a></li>
+            <li><a class="dropdown-item" href="editar_usuario.php?id=<?= $_SESSION['id'] ?>">Editar dados</a></li>
             <li><a class="dropdown-item" href="logout.php">Sair</a></li>
           </ul>
         </li>

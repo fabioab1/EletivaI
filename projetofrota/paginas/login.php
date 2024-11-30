@@ -18,6 +18,7 @@
                 {
                     $_SESSION['usuario'] = $usuario['nome'];
                     $_SESSION['nivel'] = $usuario['nivel'];
+                    $_SESSION['id'] = $usuario['id'];
                     $_SESSION['acesso'] = true;
 
                     header ('Location: dashboard.php');
