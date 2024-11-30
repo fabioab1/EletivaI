@@ -52,11 +52,3 @@ CREATE TABLE viagem (
     FOREIGN KEY (motorista_id) REFERENCES motorista(id),
     FOREIGN KEY (rota_id) REFERENCES rota(id)
 );
-
-CREATE TABLE compra (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    data DATETIME NOT NULL,
-    produto_id INT,
-    quantidade INT NOT NULL,
-    FOREIGN KEY (produto_id) REFERENCES produto(id)
-);
